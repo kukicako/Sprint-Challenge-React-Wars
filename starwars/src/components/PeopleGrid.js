@@ -3,51 +3,55 @@ import axios from "axios"
 import PeopleCard from "./PeopleCard"
 
 
-const People = () => {
-    const [ppl] = useState(People);
-    return (
-    <div>
-        {
-        ppl.map((results, index ) => (
+// const Character = () => {
+//     const [ppl] = useState(character);
+//     return (
+//     <div>
+//         {
+//         ppl.map((results, index ) => (
         
-        <PeopleCard key={index} people={results} />
-        ) )
-        }
-    </div>
-    );
-};
+//         <PeopleCard key={index} people={results} />
+//         ) )
+//         }
+//     </div>
+//     );
+// };
 
 
 
 
 function PeopleGrid(){
-const {name, setName} = useState();
-const {height, setHeight} = useState();
-const {gender, setGender} = useState();
+const [characters, setCharacters] = useState([]);
+
 
 
 useEffect(() => {
     axios
     .get(`https://swapi.co/api/people/`)
     .then(response =>{
-        console.log(response.data)
-        setName(response.data.name);
-        setHeight(response.data.height);
-        setGender(response.data.gender);
+        console.log(response.data.results)
+        setCharacters(response.data.results)
+        
     })
     .catch(error =>{
-        console.log("u dummy", error)
+        console.log("WRONG", error)
     })
 
 },[])
 
 return(
     <div className="container">
-        <PeopleCard
-        name = {name}
-        height = {height}
-        gender = {gender}
-        />
+        {characters.map((character, index) => (
+            <PeopleCard
+            key={index}
+            name={character.name}
+            height={character.height}
+            gender={character.gender}
+            
+            />
+        ))}
+        
+        
     </div>
 )
 }

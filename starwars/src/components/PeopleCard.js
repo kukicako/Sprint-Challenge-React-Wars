@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-background: #99f3eb;
-color: black;
-width: 300px;
-max-height: 800px;
-height:200px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 20px;
+    background: #99f3eb;
+    color: black;
+    width: 300px;
+    max-height: 800px;
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 `
 
 
